@@ -32,3 +32,13 @@ class rutas(models.Model):
 
 	def __str__(self):
 		return self.NombreRuta
+
+class asesores(models.Model):
+	NombreAsesor=models.CharField(max_length=100)
+
+	class Meta:
+		ordering=['NombreAsesor']
+		verbose_name_plural='Asesores'
+
+	def __str__(self):
+		return self.NombreAsesor
