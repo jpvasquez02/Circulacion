@@ -221,12 +221,17 @@ class recibo(models.Model):
 	Fecha=models.DateField()
 	Nombre=models.ForeignKey(clientes)
 	Tipo=models.CharField(max_length=15,choices=[('Canje','Canje'),('Certificado','Certificado'),('Cortesia','Cortesia'),('DxP','DxP'),('Pagado','Pagado')])
+	Descripcion=models.TextField()
+	Valor=models.IntegerField(max_length=5, decimal_places=2)
+
 
 	class Meta:
 		verbose_name_plural='Recibo'
 
 	def __str__(self):
-		pass
+		return '%s - %s - %s' % (self.Codigo,self.Fecha,self.Nombre)
+
+
 
 
 
