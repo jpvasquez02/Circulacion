@@ -35,11 +35,13 @@
     <![endif]-->
 
     <!-- The fav icon -->
-    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link rel="shortcut icon" href="/static/img/dtiempo.ico">
 
 </head>
 
 <body>
+
+
     <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
 
@@ -56,7 +58,7 @@
             <!-- user dropdown starts -->
             <div class="btn-group pull-right">
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> admin</span>
+                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> {{usuario}}</span>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
@@ -121,27 +123,18 @@
                 </div>
             </div>
         </div>
+    
+
         <!--/span-->
         <!-- left menu ends -->
 
-        <div id="content" class="col-lg-10 col-sm-10">
-            <!-- content starts -->
-            <div>
-    <ul class="breadcrumb">
-        <li>
-            <a href="#">Home</a>
-        </li>
-        <li>
-            <a href="#">Dashboard</a>
-        </li>
-    </ul>
-</div>
+     
 <div class=" row">
     <div class="col-md-3 col-sm-3 col-xs-6">
         <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
             <i class="glyphicon glyphicon-user blue"></i>
 
-            <div>Total Members</div>
+            <div>Total Suscripciones</div>
             <div>507</div>
             <span class="notification">6</span>
         </a>
@@ -151,7 +144,7 @@
         <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
             <i class="glyphicon glyphicon-star green"></i>
 
-            <div>Pro Members</div>
+            <div>Total Cortesias</div>
             <div>228</div>
             <span class="notification green">4</span>
         </a>
@@ -161,7 +154,7 @@
         <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
             <i class="glyphicon glyphicon-shopping-cart yellow"></i>
 
-            <div>Sales</div>
+            <div>Ventas</div>
             <div>$13320</div>
             <span class="notification yellow">$34</span>
         </a>
@@ -171,7 +164,7 @@
         <a data-toggle="tooltip" title="12 new messages." class="well top-block" href="#">
             <i class="glyphicon glyphicon-envelope red"></i>
 
-            <div>Messages</div>
+            <div>Mensajes</div>
             <div>25</div>
             <span class="notification red">12</span>
         </a>
@@ -198,48 +191,53 @@
         </div>
     </div>
 
+
+
+</div><!--/.fluid-container-->
+
+<div id="footer" style="text-align: center">
     <footer class="row">
         <h3>
             <span> Todos los derechos Reservados 2015 </span>
         </h3>
     </footer>
-
-</div><!--/.fluid-container-->
+</div>
+    
 
 <!-- external javascript -->
 
-<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<!-- library for cookie management -->
-<script src="/static/js/jquery.cookie.js"></script>
-<!-- calender plugin -->
-<script src='/static/bower_components/moment/min/moment.min.js'></script>
-<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
-<!-- data table plugin -->
-<script src='/static/s/jquery.dataTables.min.js'></script>
+    <!-- library for cookie management -->
+    <script src="/static/js/jquery.cookie.js"></script>
+    <!-- calender plugin -->
+    <script src='/static/bower_components/moment/min/moment.min.js'></script>
+    <script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+    <!-- data table plugin -->
+    <script src='/static/s/jquery.dataTables.min.js'></script>
 
-<!-- select or dropdown enhancer -->
-<script src="/static/ower_components/chosen/chosen.jquery.min.js"></script>
-<!-- plugin for gallery image view -->
-<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
-<!-- notification plugin -->
-<script src="/static/js/jquery.noty.js"></script>
-<!-- library for making tables responsive -->
-<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
-<!-- tour plugin -->
-<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
-<!-- star rating plugin -->
-<script src="/static/js/jquery.raty.min.js"></script>
-<!-- for iOS style toggle switch -->
-<script src="/static/js/jquery.iphone.toggle.js"></script>
-<!-- autogrowing textarea plugin -->
-<script src="/static/js/jquery.autogrow-textarea.js"></script>
-<!-- multiple file upload plugin -->
-<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
-<!-- history.js for cross-browser state change on ajax -->
-<script src="/static/js/jquery.history.js"></script>
-<!-- application script for Charisma demo -->
-<script src="/static/js/charisma.js"></script>
+    <!-- select or dropdown enhancer -->
+    <script src="/static/ower_components/chosen/chosen.jquery.min.js"></script>
+    <!-- plugin for gallery image view -->
+    <script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
+    <!-- notification plugin -->
+    <script src="/static/js/jquery.noty.js"></script>
+    <!-- library for making tables responsive -->
+    <script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
+    <!-- tour plugin -->
+    <script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+    <!-- star rating plugin -->
+    <script src="/static/js/jquery.raty.min.js"></script>
+    <!-- for iOS style toggle switch -->
+    <script src="/static/js/jquery.iphone.toggle.js"></script>
+    <!-- autogrowing textarea plugin -->
+    <script src="/static/js/jquery.autogrow-textarea.js"></script>
+    <!-- multiple file upload plugin -->
+    <script src="/static/js/jquery.uploadify-3.1.min.js"></script>
+    <!-- history.js for cross-browser state change on ajax -->
+    <script src="/static/js/jquery.history.js"></script>
+    <!-- application script for Charisma demo -->
+    <script src="/static/js/charisma.js"></script>
 
 
 </body>

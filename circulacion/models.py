@@ -220,9 +220,10 @@ class recibo(models.Model):
 	Codigo=models.AutoField(primary_key=True)
 	Fecha=models.DateField()
 	Nombre=models.ForeignKey(clientes)
+	Plan=models.ForeignKey(planes)
 	Tipo=models.CharField(max_length=15,choices=[('Canje','Canje'),('Certificado','Certificado'),('Cortesia','Cortesia'),('DxP','DxP'),('Pagado','Pagado')])
 	Descripcion=models.TextField()
-	Valor=models.IntegerField(max_length=5, decimal_places=2)
+	Valor=models.DecimalField(max_digits=5, decimal_places=2)
 
 
 	class Meta:

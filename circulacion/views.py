@@ -107,7 +107,7 @@ def set_clientes(request):
 		if form.is_valid():
 			
 			form.save()
-
+			form.clear()
 	else:
 		form=clientesForm()
 
@@ -169,3 +169,8 @@ def set_cierre(request):
 		s=suscripcion.objects.filter(pk=request.POST.get("Codigo","")).update(Suscriptor=request.POST.get("Suscriptor",""))
 
 	return render(request,template,locals(),context_instance=RequestContext(request))
+
+@login_required
+def set_factura(request):
+	f = suscripcion.objects.all()
+	template = 'factura.html'
