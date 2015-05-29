@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<title>{% block title %} Circulacion - Suscripciones {% endblock %}</title>
@@ -18,6 +18,7 @@
     <link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='/static/css/uploadify.css' rel='stylesheet'>
     <link href='/static/css/animate.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="/static/img/dtiempo.ico">
     <script src="/static/bower_components/jquery/jquery.min.js"></script>
 
 </head>
@@ -142,7 +143,7 @@
         <a data-toggle="tooltip" title="12 new messages." class="well top-block" href="#">
             <i class="glyphicon glyphicon-envelope red"></i>
 
-            <div>Messages</div>
+            <div>Mensajes</div>
             <div>25</div>
             <span class="notification red">12</span>
         </a>
@@ -170,18 +171,18 @@
     </div>
     
     <style type="text/css">
-        #suscripcion {width: 50%}
+        #suscripcion p label {float: left ;width: 25%}
     </style>
 
 	<h2>Suscripcion</h2>
-	<form id='suscripcion' style="border: 1px solid; padding: 1em;" action="/suscripciones/" method="post">
+	<form id='suscripcion' style="border: 1px solid; padding: 1em; width: 50%;" action="/suscripciones/" method="post">
     	{% csrf_token %}
     	{{ form.as_p }}
     	<input type="submit" value="Agregar" />
     	<input type="reset" value="Cancelar"/>
 	</form>
 
-	<footer class="row">
+	<footer class="row" style="text-align: center">
         <h3>
             <span> <p>Todos los derechos Reservados 2015 </p></span>
         </h3>
