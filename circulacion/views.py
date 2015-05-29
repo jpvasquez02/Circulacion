@@ -107,7 +107,7 @@ def set_clientes(request):
 		if form.is_valid():
 			
 			form.save()
-			form.clear()
+		
 	else:
 		form=clientesForm()
 
@@ -137,11 +137,22 @@ def set_control(request):
 def set_suscripcion(request):
 	if request.method=='POST':
 		form=suscripcionForm(request.POST)
-
+		fr=guiaForm(request.POST)
+		f=
 		if form.is_valid():
 
-			form.save()
+			g=guia()
 
+			g.Fecha=request.POST.get("Fecha","")
+			g.Ruta=request.POST.get("Ruta","")
+			g.Supervisor=request.POST.get("Supervisor","")
+			g.Cliente=request.POST.get("Cliente","")
+			g.Destino=request.POST.get("De")
+			Envios
+			Cortesias
+			Suscripciones
+
+			form.save()
 
 	else:
 		form=suscripcionForm()

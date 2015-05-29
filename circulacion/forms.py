@@ -36,4 +36,14 @@ class cierreForm(forms.ModelForm):
     class Meta:
         model = cierre
         fields ='__all__'
+
+class guiaForm(forms.ModelForm):
+    class Meta:
+        model = guia
+        fields='__all__'
+        
+class tirajeForm(forms.ModelForm):
+        class Meta:
+            model = tiraje
+            fields='__all__'
     

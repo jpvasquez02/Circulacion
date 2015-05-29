@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class planes(models.Model):
 	CodigoPlan=models.CharField(max_length=4,primary_key=True)
 	Nombre=models.CharField(max_length=50)
+	
 
 	def __str__(self):
 		return self.CodigoPlan
