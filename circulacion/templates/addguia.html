@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Agregar Guia</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     
 
     <!-- The styles -->
@@ -36,14 +34,10 @@
 
     <!-- The fav icon -->
     <link rel="shortcut icon" href="/static/img/dtiempo.ico">
-
 </head>
-
 <body>
 
-
-    <!-- topbar starts -->
-    <div class="navbar navbar-default" role="navigation">
+	<div class="navbar navbar-default" role="navigation">
 
         <div class="navbar-inner">
             <button type="button" class="navbar-toggle pull-left animated flip">
@@ -98,14 +92,15 @@
                         </li>
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Clientes</span></a>
                             <ul class="nav nav-pills nav-stacked">
-                                <li><a href="/clientes/">Agregar</a></li>
+                                <li><a href="#">Agregar</a></li>
+                                <li><a href="#">Modificar</a></li>
                             </ul>
                         </li>
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Suscripciones </span></a>
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="/suscripciones/">Agregar</a></li>
                                 <li><a href="#">Modificar</a></li>
-                                <li><a href="#">Cancelar</a></li>
+                                <li><a href="#">Eliminar</a></li>
                             </ul>
                         </li>
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Guia </span></a>
@@ -194,8 +189,16 @@
 
 
 
+
 </div><!--/.fluid-container-->
 
+<h2>Agregar Guía</h2>
+<form id="guia" style="border: 1px solid; padding: 1em; width: 50%;" action="/guia/agregar" method="post">
+	{% csrf_token %}
+    	{{ form.as_p }}
+    	<input type="submit" value="Agregar" />
+    	<input type="reset" value="Cancelar"/>
+</form>
 
 <div id="footer" style="text-align: center">
     <footer class="row">
@@ -242,5 +245,6 @@
     <script src="/static/js/charisma.js"></script>
 
 
+	
 </body>
 </html>

@@ -40,18 +40,20 @@ class empleadosAdmin(admin.ModelAdmin):
 	pass
 
 class tirajeAdmin(admin.ModelAdmin):
-	ordering=['id']
-	list_display=('lunes','martes','miercoles','jueves','viernes','sabado','domingo')
+	pass
+
+class cierreAdmin(admin.ModelAdmin):
+	pass
 
 admin.site.register(asesores,AsesorAdmin)
 admin.site.register(ciudades,CiudadAdmin)
+admin.site.register(cierre,cierreAdmin)
 admin.site.register(clientes,ClienteAdmin)
 admin.site.register(departamentos,DeptoAdmin)
 admin.site.register(empleados,empleadosAdmin)
-admin.site.register(guia,guiaAdmin)
+
 admin.site.register(planes,PlanesAdmin)
 admin.site.register(repartidores,RepartidoresAdmin)
 admin.site.register(rutas,rutaAdmin)
 admin.site.register(supervisores,SupervisorAdmin)
 admin.site.register(suscripcion,SuscripcionesAdmin)
-admin.site.register(tiraje,tirajeAdmin)

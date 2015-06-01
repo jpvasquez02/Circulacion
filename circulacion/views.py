@@ -7,6 +7,7 @@ import json
 from django.views.generic.list import ListView
 from circulacion.models import *
 from circulacion.forms import *
+from datetime import date
 
 @login_required
 def home(request):
@@ -107,6 +108,8 @@ def set_clientes(request):
 		if form.is_valid():
 			
 			form.save()
+
+			
 		
 	else:
 		form=clientesForm()
@@ -138,26 +141,45 @@ def set_suscripcion(request):
 	if request.method=='POST':
 		form=suscripcionForm(request.POST)
 		fr=guiaForm(request.POST)
-		f=
+		
 		if form.is_valid():
+
+			form.save()
+
 
 			g=guia()
 
-			g.Fecha=request.POST.get("Fecha","")
-			g.Ruta=request.POST.get("Ruta","")
-			g.Supervisor=request.POST.get("Supervisor","")
-			g.Cliente=request.POST.get("Cliente","")
-			g.Destino=request.POST.get("De")
-			Envios
-			Cortesias
-			Suscripciones
+			
+			g.Ruta=rutas.objects.get(NombreRuta=request.POST.get("Ruta",""))
+			g.Supervisor=None
+			g.Cliente=clientes.objects.get(pk=request.POST.get("Suscriptor",""))
+			g.Destino=request.POST.get("Destino","")
+			g.Envios=request.POST.get("Cantidad","")
+			g.Cortesias=request.POST.get("Cortesias","")
+			g.Suscripciones=request.POST.get("Suscripciones","")
 
-			form.save()
+			print (g)
+			g.save()
+
 
 	else:
 		form=suscripcionForm()
 
 	return render(request, 'suscripciones.html',{'form': form})
+
+@login_required
+def set_guia(request):
+	if request.method=='POST':
+		form=guiaForm(request.POST)
+
+		if form.is_valid():
+
+			form.save()
+
+	else:
+		form=guiaForm()
+
+	return render (request, 'addguia.html', {'form':form})
 
 @login_required
 def set_empleados(request):

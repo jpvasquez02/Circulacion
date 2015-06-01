@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-
-    <!-- The styles -->
-   <link href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <title>{% block title %} Circulacion - Planes {% endblock %}</title>
+    <link href="/static/css/bootstrap-cerulean.min.css" rel="stylesheet">
     <link href="/static/css/charisma-app.css" rel="stylesheet">
     <link href='/static/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
     <link href='/static/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
@@ -25,23 +18,11 @@
     <link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
     <link href='/static/css/uploadify.css' rel='stylesheet'>
     <link href='/static/css/animate.min.css' rel='stylesheet'>
-
-    <!-- jQuery -->
+    <link rel="shortcut icon" href="/static/img/dtiempo.ico">
     <script src="/static/bower_components/jquery/jquery.min.js"></script>
 
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- The fav icon -->
-    <link rel="shortcut icon" href="/static/img/favicon.ico">
-
 </head>
-
 <body>
-
-    <!-- topbar starts -->
     <div class="navbar navbar-default" role="navigation">
 
         <div class="navbar-inner">
@@ -98,6 +79,8 @@
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Clientes</span></a>
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="/clientes/">Agregar</a></li>
+                                <li><a href="#">Modificar</a></li>
+                                <li><a href="#">Cancelar</a></li>
                             </ul>
                         </li>
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Suscripciones </span></a>
@@ -109,6 +92,7 @@
                         </li>
                         <li><a><i class="glyphicon glyphicon-eye-open"></i><span> Guia </span></a>
                             <ul class="nav nav-pills nav-stacked">
+                                <li><a href="/guia/agregar">Agregar</a></li>
                                 <li><a href="/guia/">Modificar</a></li>
                             </ul>
                          </li>       
@@ -118,16 +102,24 @@
                                 <li><a href="/modificado/">Modificar</a></li>
                             </ul>
                         </li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-</div>
         <!--/span-->
         <!-- left menu ends -->
 
-        
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <div>
+    <ul class="breadcrumb">
+        <li>
+            <a href="#">Home</a>
+        </li>
+        <li>
+            <a href="#">Dashboard</a>
+        </li>
+    </ul>
+</div>
 <div class=" row">
     <div class="col-md-3 col-sm-3 col-xs-6">
         <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
@@ -143,7 +135,7 @@
         <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
             <i class="glyphicon glyphicon-star green"></i>
 
-            <div>Total Cortesias</div>
+            <div>Suscripciones Activas</div>
             <div>228</div>
             <span class="notification green">4</span>
         </a>
@@ -189,60 +181,56 @@
             </div>
         </div>
     </div>
-	
-	<style type="text/css">
-		#formulario {width:50% ; float: left;}
-		#planes p label{width: 15%}
+    
+    <style type="text/css">
+        #planes p label {float: left ;width: 25%}
+    </style>
 
-	</style>
+    <h2>Planes</h2>
+    <form id='planes' style="border: 1px solid; padding: 1em; width: 50%;" action="/plan/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Agregar" />
+        <input type="reset" value="Cancelar"/>
+    </form>
 
-	<div id="Formulario">
-		<form id="planes" style="border: 1px solid; padding: 1em;" action="/plan/" method="post">
-    		{% csrf_token %}
-    		{{ form.as_p }}
-    		<input type="submit" value="Agregar"/>
-    		<input type="reset" value="Cancelar">
-		</form>
-		<h1>{{ mensaje }}</h1>
+    <footer class="row" style="text-align: center">
+        <h3>
+            <span> <p>Todos los derechos Reservados 2015 </p></span>
+        </h3>
+    </footer>
 
-	</div>
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<div>
+<!-- library for cookie management -->
+<script src="/static/js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='/static/bower_components/moment/min/moment.min.js'></script>
+<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='/static/s/jquery.dataTables.min.js'></script>
 
-</div>
-
-	<script src="/static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-	<!-- library for cookie management -->
-	<script src="/static/js/jquery.cookie.js"></script>
-	<!-- calender plugin -->
-	<script src='/static/bower_components/moment/min/moment.min.js'></script>
-	<script src='/static/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
-	<!-- data table plugin -->
-	<script src='/static/s/jquery.dataTables.min.js'></script>
-
-	<!-- select or dropdown enhancer -->
-	<script src="/static/ower_components/chosen/chosen.jquery.min.js"></script>
-	<!-- plugin for gallery image view -->
-	<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
-	<!-- notification plugin -->
-	<script src="/static/js/jquery.noty.js"></script>
-	<!-- library for making tables responsive -->
-	<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
-	<!-- tour plugin -->
-	<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
-	<!-- star rating plugin -->
-	<script src="/static/js/jquery.raty.min.js"></script>
-	<!-- for iOS style toggle switch -->
-	<script src="/static/js/jquery.iphone.toggle.js"></script>
-	<!-- autogrowing textarea plugin -->
-	<script src="/static/js/jquery.autogrow-textarea.js"></script>
-	<!-- multiple file upload plugin -->
-	<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
-	<!-- history.js for cross-browser state change on ajax -->
-	<script src="/static/js/jquery.history.js"></script>
-	<!-- application script for Charisma demo -->
-	<script src="/static/js/charisma.js"></script>
-
+<!-- select or dropdown enhancer -->
+<script src="/static/ower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="/static/bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="/static/js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="/static/bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="/static/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="/static/js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="/static/js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="/static/js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="/static/js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="/static/js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="/static/js/charisma.js"></script>
 </body>
 </html>
